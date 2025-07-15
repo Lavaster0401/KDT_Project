@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 스타일 설정 용 -->
+    <style>
+      /* 스크롤링을 부드럽게 */
+      html {
+        scroll-behavior: smooth;
+      }
+      table {
+        width: 100%;
+        /* 테이블 보더 간격을 합치기*/
+        border-collapse: collapse;
+      }
+      /* 표 전체에 테두리선, 패딩(여백) 왼쪽 정렬 */
+      th,
+      td {
+        border: 2px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      /* 머리글(열,행)만 색 변경 */
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <title>HTML 과제</title>
+  </head>
+
+  <body>
+    <!-- 헤더 -->
+    <header>
+      <!-- 메뉴 -->
+      <h1>메뉴</h1>
+      <!-- 링크를 보여주는 구획이니 nav 사용 -->
+      <nav>
+        <ul>
+          <li><a href="#sign_up">회원가입</a></li>
+          <li><a href="#profile_info">프로필 정보</a></li>
+          <li><a href="#question">문의하기</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <hr />
+
+    <!-- 의미론적 태그 main, 스크롤링을 위해 id 값 설정 -->
+    <main id="sign_up">
+      <!-- 회원가입 섹션 -->
+      <section>
+        <h2>회원가입</h2>
+        <!-- 양식 체출을 위한 from 태그 사용 -->
+        <form id="profile_Form">
+          <label for="username">사용자 이름:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="사용자 이름 입력"
+            required
+          />
+          <br /><br />
+
+          <label for="email">이메일:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="user@naver.com"
+            required
+          />
+          <br /><br />
+
+          <label for="password">비밀번호:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="비밀번호 입력"
+            required
+          />
+          <br /><br />
+
+          <label for="age">나이:</label>
+          <input
+            type="number"
+            id="age"
+            placeholder="나이 입력"
+            min="1"
+            max="150"
+            required
+          />
+          <br /><br />
+
+          <label>성별:</label>
+          <!-- 동일한 이름을 가진 라디오 버튼 그룹 중 하나만 선택할 수 있음 - 이름이 없을 시 중복체크 됨  -->
+          <input type="radio" id="male" name="gender" required />
+          <label for="male">남성</label>
+          <input type="radio" id="female" name="gender" />
+          <label for="female">여성</label>
+          <br /><br />
+
+          <label for="bio">자기소개:</label>
+          <textarea
+            id="bio"
+            rows="4"
+            cols="50"
+            placeholder="자기소개를 입력하세요"
+          ></textarea>
+          <br /><br />
+
+          <label for="hobbies">좋아하는 취미</label>
+          <select id="hobbies">
+            <optgroup label="스포츠">
+              <option value="축구">축구</option>
+              <option value="농구">농구</option>
+              <option value="테니스">테니스</option>
+            </optgroup>
+
+            <optgroup label="예술">
+              <option value="음악">음악</option>
+              <option value="미술">미술</option>
+              <option value="사진">사진</option>
+            </optgroup>
+
+            <optgroup label="기타">
+              <option value="독서">독서</option>
+              <option value="여행">여행</option>
+              <option value="요리">요리</option>
+            </optgroup>
+          </select>
+          <br /><br />
+
+          <label for="profilePic">프로필 사진 업로드:</label>
+          <input type="file" id="profilePic" accept="" />
+          <br /><br />
+
+          <button type="button">회원가입</button>
+          <button type="reset">초기화</button>
+
+          <label for="progress">업데이트 진행 상황:</label>
+          <progress id="progress" value="0" max="100"></progress>
+        </form>
+      </section>
+
+      <hr />
+
+      <!-- 프로필 정보 확인 섹션 -->
+      <section id="profile_info">
+        <h2>프로필 정보</h2>
+        <!-- 테이블 이용 -->
+        <table>
+          <caption>
+            프로필 정보 요약
+          </caption>
+
+          <!-- 첫 열 가로 사이즈 20% , 두번째 열 가로사이즈 80%로 설정 -->
+          <colgroup>
+            <col style="width: 20%" />
+            <col style="width: 80%" />
+          </colgroup>
+
+          <thead>
+            <tr>
+              <th>항목</th>
+              <th>내용</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th>프로필</th>
+              <td>
+                <img
+                  id="profileImage"
+                  src="https://www.example.profileImage.com"
+                  alt="프로필 사진 미리보기"
+                  width="150"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <th>이름</th>
+              <td id="displayName"></td>
+            </tr>
+
+            <tr>
+              <th>이메일</th>
+              <td id="displayEmail"></td>
+            </tr>
+
+            <tr>
+              <th>나이</th>
+              <td id="displayAge"></td>
+            </tr>
+
+            <tr>
+              <th>성별</th>
+              <td id="displayGender"></td>
+            </tr>
+
+            <tr>
+              <th>자기소개</th>
+              <td id="displayBio"></td>
+            </tr>
+
+            <tr>
+              <th>취미</th>
+              <td id="displayHobbies"></td>
+            </tr>
+          </tbody>
+
+          <tfoot>
+            <tr>
+              <!--  colspan="합칠 셀의 개수" 은 열을 합치는 속성  -->
+              <td colspan="2">프로필 정보가 성공적으로 업데이트 되었습니다.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <hr />
+
+    <!-- 푸터 -->
+    <footer id="question">
+      <!-- 문의 하기  -->
+      <h2>문의하기</h2>
+      <address>
+        <p>
+          문의: <a href="mailto:example@example.com">example@example.com</a>
+        </p>
+        <p>전화: 010-1234-5678</p>
+        <p>주소: 서울특별시 중구 예제로 123</p>
+      </address>
+      <h3>오시는 길</h3>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25303.014005702404!2d126.9552095030175!3d37.55796746811193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2fc53a1f59b%3A0x5f7e54ee689e9e17!2z7ISc7Jq47Yq567OE7IucIOykkeq1rA!5e0!3m2!1sko!2skr!4v1752556608997!5m2!1sko!2skr"
+        height="300"
+        width="100%"
+        allow="fullscreen"
+      ></iframe>
+
+      <p><strong>Copyright ⓒ 2024</strong> 프로필 관리 페이지</p>
+    </footer>
+  </body>
+</html>
