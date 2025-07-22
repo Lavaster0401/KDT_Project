@@ -1,0 +1,139 @@
+ /* 전체 선택자 */
+ /* 모든 마진이랑 패딩을 0으로, */
+ /* padding 값만큼 요소의 크기가 커지지않게 box-sizing: border-box; 세팅 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 전체 요소 */
+body {
+  font-family: Arial, sans-serif; /* 글꼴 설정 */
+  line-height: 1.6; /* 줄 높이 지정 */
+  display: flex; /* 플랙스 설정 */
+  flex-direction: column; /* 위에서 아래로 생성 */
+}
+
+
+/* 타이틀 */
+#main_title {
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover; /* 이미지가 화면을 꽉 채우도록 */
+  height: 200px;
+  padding: 20px 0; /* 패딩을 줘서 내부 요소가 아래로 내려가게 */
+  color: white; /* 글자색 설정 */
+  text-align: center; /* 텍스트는 중앙으로 */
+}
+
+
+/* 메인  */
+.main_container {
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  align-items: flex-start; /* 아이템을 각 줄의 시작점으로 정렬 */
+  padding: 20px; 
+}
+
+/* 왼쪽 사이드 바 */
+.left_sidebar {
+  position: absolute; 
+  top: 220px; 
+  left: 20px;
+  width: 200px;
+}
+
+/* 리스트 요소 - 그리드로 */
+.left_sidebar nav ul {
+  display: grid;
+  grid-template-columns: 1fr; /* 열의 크기 정의 - 모두 같은 비율로 */
+  gap: 10px; 
+  list-style: none; /* 리스트 스타일 * < 제거  */
+  padding: 10px; /* 옆에서 떨어지게 */
+}
+
+
+/* 리스트 요소 */
+.left_sidebar nav ul li a{
+  display: block;
+  color: white;
+  background-color: #4CAF50;
+  text-decoration: none; /* 밑줄 제거 */
+  padding: 10px; /* 패딩을 줘서 컨텐츠 크기를 크게 만듬*/
+  margin-bottom: 5px; /* 마진 */
+  transition: background-color 0.3s; /* 전환 애니메이션용 딜레이 */
+}
+
+/* 마우스 오버시 색 변화 */
+.left_sidebar nav ul li a:hover {
+  background-color: #45a049;
+}
+
+/* 회원 가입 - 플랙스로 */
+.signup_form form{
+  display: flex;
+  flex-direction: column;   /* 위에서 아래로 생성 */
+  background-color: #f9f9f9;
+  border-radius: 5px; /* 테두리 둥글게 */
+  width: 300px;
+  padding: 20px;
+}
+
+/* 선택지들에 마진을 줘서 띄움 */
+.signup_form label + input {
+  margin-bottom: 10px;
+}
+
+/* 가상요소로 아이디 앞에 추가 */
+.signup_form label[for="name"]::before {
+  content: '👤';
+  margin-right: 5px;
+}
+
+
+/* 인풋 요소 */
+.signup_form input {
+  padding: 10px; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* 회원가입 버튼 요소 */
+.signup_form button {
+  padding: 10px; 
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s; 
+}
+
+
+/* 마우스 오버시 버튼 색변화 */
+.signup_form button:hover {
+  background-color: #45a049;
+}
+
+button:hover {
+  animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+
+/* 푸터 */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed; /* 화면 하단에 고정 */
+  bottom: 0;
+  width: 100%;  /* 꽉 차게 */
+}
