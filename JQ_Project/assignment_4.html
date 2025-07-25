@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>assignment_4</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <input id="todoInput" placeholder="할 일을 입력하세요"/>
+    <button id="addBtn">추가</button>
+    <ul id="todoList"></ul>
+
+    <script>
+      $("#addBtn").click(function () {
+        const inputVal = $("#todoInput").val();
+
+        if (inputVal == "") {
+          alert("[경고] 아무것도 입력하지 않았습니다.");
+          return;
+        } 
+        else if(inputVal.trim() == "")
+        {
+          //trim()은 문자열의 양 끝에 있는 메서드를 제거하는 함수
+          //공백만 입력했을 때의 예외 처리
+          alert("[경고] 공백은 입력할 수 없습니다");
+          return;
+        }
+
+        $("#todoList").append(`<li>${inputVal} </li>`);
+
+        //입력창에 남아있는 값 지움
+        $("#todoInput").val("");
+      });
+    </script>
+  </body>
+</html>
