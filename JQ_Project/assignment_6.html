@@ -35,8 +35,8 @@
         $("#todoInput").val("");
       });
 
-      // 클릭(click) 이벤트 핸들러 연결 - 선택자(li) - function()
-      //부모 element 에 이벤트를 걸면 아래 li에 다 걸림(이벤트 위임)
+      //클릭(click) 이벤트 핸들러 연결 - 선택자(li) - function()
+      //부모 element에 이벤트를 걸면 아래 li에 다 걸림(이벤트 위임)
       $("#todoList").on("click", "li", function () {
         $(this).remove(); //클릭된 본인 제거
       });
