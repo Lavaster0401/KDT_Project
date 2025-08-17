@@ -1,3 +1,5 @@
+package project0811;
+
 public class Sort {
     public static void main(String[] args) {
         String[] words = {"cherry", "banana","apple"};
@@ -16,8 +18,8 @@ public class Sort {
             }
         }
         System.out.println("정렬 완료:");
-        for (int i = 0; i < words.length; i++) {
-            System.out.println(words[i]);
+        for (String word : words) {
+            System.out.println(word);
         }
     }
 }

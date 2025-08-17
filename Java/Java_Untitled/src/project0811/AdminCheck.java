@@ -1,4 +1,6 @@
-public class Admin_Check {
+package project0811;
+
+public class AdminCheck {
     public static void main(String[] args) {
         String userId = "Admin";
         String userInput = "AdMiN";
