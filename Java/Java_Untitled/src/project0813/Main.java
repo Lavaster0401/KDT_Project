@@ -9,7 +9,7 @@ public class Main {
         acc1.withdraw(3000);
         acc1.transferTo(acc2, 4000);
 
-        acc1.getmoney();
-        acc2.getmoney();
+        acc1.getMoney();
+        acc2.getMoney();
     }
 }
