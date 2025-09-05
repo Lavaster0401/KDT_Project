@@ -9,7 +9,7 @@ public class BankAccount {
     //생성자
     public BankAccount(String accountNumber, String owner, int money) {
         if (money < 0) {
-            System.out.println("잔액은 0원 이상이어야 합니다.");
+            throw new IllegalArgumentException("잔액은 0원 이상이어야 합니다.");
         }
         this.accountNumber = accountNumber;
         this.owner = owner;

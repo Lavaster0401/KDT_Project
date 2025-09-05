@@ -29,6 +29,7 @@ public class Calculating {
                 break;
             default:
                 System.out.println("잘못된 연산자입니다.");
+                return;
         }
 
         System.out.println("계산 결과: " + result);
